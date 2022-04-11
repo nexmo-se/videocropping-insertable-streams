@@ -72,7 +72,7 @@ function initializeSession() {
       'subscriber',
       {
         insertMode: 'append',
-        width: '100px',
+        width: '200px',
         height: '200px',
       },
       handleError

@@ -41,9 +41,6 @@
       <div id="publisher"></div>
       <div style="display: flex" id="subscriber"></div>
     </div>
-
-    <!-- <script src="https://webrtc.github.io/adapter/adapter-latest.js"></script> -->
-    <!-- <script src="js/main.js" async></script> -->
   </body>
   <script>
     var apiKey = '46264952';
@@ -79,10 +76,6 @@
           subscriberOptions,
           handleError
         );
-      });
-
-      session.on('sessionDisconnected', function sessionDisconnected(event) {
-        console.log('You were disconnected from the session.', event.reason);
       });
 
       // initialize the publisher
