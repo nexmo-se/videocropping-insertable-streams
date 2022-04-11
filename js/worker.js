@@ -14,7 +14,7 @@ function transform(frame, controller) {
     visibleRect: {
       x: 1084,
       width: 300,
-      y: 16,
+      y: 116,
       height: 630,
     },
   });

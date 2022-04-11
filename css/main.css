@@ -21,9 +21,9 @@ div#status {
 }
 
 video {
-  --width: 400px;
+  --width: 0px;
   /* object-fit: contain; */
 
   /* height: calc(var(--width) * 0.75); */
-  height: 500px;
+  height: 0px;
 }
