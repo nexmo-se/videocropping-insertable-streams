@@ -21,7 +21,7 @@ To run the sample application locally you need to expose the HTML files with Liv
 
 Let's take the following image as an example. Let's suppose the application has some private content you don't want to share (we will presume this content is the green area in the image below), however the user would like to be able to share only a portion of the web application, such as the map on the right hand-side.
 
-![Private screen](https://raw.githubusercontent.com/nexmo-se/videocropping-insertable-streams/main/images/private_screen.png?token=GHSAT0AAAAAABJETI6BKP3GSUBXT5LHLWO2YS6VZGQ)
+![Private screen](https://raw.githubusercontent.com/nexmo-se/videocropping-insertable-streams/main/images/private_screen.png?token=GHSAT0AAAAAABJETI6B52IOKEINZWE4HEWUYS6XU6Q)
 
 Once the user hits on share screen and selects entire screen, a new stream will be created including only a specific portion of the screen. As it is seen in the image below, the new stream published into the session only contains the map.
 
