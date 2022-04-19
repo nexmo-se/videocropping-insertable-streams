@@ -19,6 +19,6 @@ To run the sample application locally you need to expose the HTML files with Liv
 2. At this point both users should see each other.
 3. The publisher can hit on share screen, select entire screen and only a portion of the screen (the map) will be shared. If you test locally and want to play both roles on the same machine, when you minimise the window that pertains to the screen-sharer, the map will disappear because you are sharing the entire screen.
 
-[Private screen](https://raw.githubusercontent.com/nexmo-se/videocropping-insertable-streams/main/images/private_screen.png?token=GHSAT0AAAAAABJETI6BKP3GSUBXT5LHLWO2YS6VZGQ)
+![Private screen](https://raw.githubusercontent.com/nexmo-se/videocropping-insertable-streams/main/images/private_screen.png?token=GHSAT0AAAAAABJETI6BKP3GSUBXT5LHLWO2YS6VZGQ)
 
-[Stream shared](https://github.com/nexmo-se/videocropping-insertable-streams/blob/main/images/private_screen_sharing.png?raw=true)
+![Stream shared](https://github.com/nexmo-se/videocropping-insertable-streams/blob/main/images/private_screen_sharing.png?raw=true)
