@@ -14,7 +14,7 @@ Once the screen publisher selects entire screen, the getDisplayMedia() API will 
 
 To run the sample application locally you need to expose the HTML files with Live server or a similar utility because web workers can't run locally with file:// paths.
 
-0. Configure apiKey, sessionId and token in main.js and subscriber.html
+0. Configure apiKey, sessionId and token in js/main.js and subscriber.html
 1. Open the screen_publisher.html in one tab and subscriber.html on a different tab (ideally in different machines)
 2. At this point both users should see each other.
 3. The publisher can hit on share screen, select entire screen and only a portion of the screen (the map) will be shared. If you test locally and want to play both roles on the same machine, when you minimise the window that pertains to the screen-sharer, the map will disappear because you are sharing the entire screen.
