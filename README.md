@@ -4,7 +4,7 @@ This sample shows how to perform cropping on a screen sharing stream using the e
 
 ## Use Case
 
-For some use-cases, it is important that you can select a portion of the screen to share, because you want to prevent some business logic content to be shared. Insertable Streams, which is a new browser API, allows that. This sample application has been adapted from the one found [here](https://webrtc.github.io/samples/).
+For some use-cases, it is important that you can select a portion of the screen to share, because you want to prevent some business logic content to be shared. Insertable Streams, which is a new browser API, allows that. This sample application has been adapted from the one found [here](https://webrtc.github.io/samples/). Bear in mind that at present, Insertable streams support only Chrome and Chromium based browsers (https://chromestatus.com/feature/5499415634640896)
 
 ## How does it work?
 
@@ -14,7 +14,7 @@ Once the screen publisher selects entire screen, the getDisplayMedia() API will 
 
 To run the sample application locally you need to expose the HTML files with Live server or a similar utility because web workers can't run locally with file:// paths.
 
-0. Populate the credentials file
+0. Configure apiKey, sessionId and token in main.js and subscriber.html
 1. Open the screen_publisher.html in one tab and subscriber.html on a different tab (ideally in different machines)
 2. At this point both users should see each other.
 3. The publisher can hit on share screen, select entire screen and only a portion of the screen (the map) will be shared. If you test locally and want to play both roles on the same machine, when you minimise the window that pertains to the screen-sharer, the map will disappear because you are sharing the entire screen.
