@@ -12,11 +12,9 @@ Once the screen publisher selects entire screen, the getDisplayMedia() API will 
 
 ## How to use this application
 
-To run the sample application locally you need to expose the HTML files with Live server or a similar utility because web workers can't run locally with file:// paths.
-
 0. Configure apiKey, sessionId and token in js/main.js and subscriber.html
 1. Open the screen_publisher.html in one tab. At this point the publisher is publishing video from a camera, if you hit on share screen and select entire screen, a new stream will be created with containing the map.
-2. If subscriber.html page is open, both users should be able to communicate and the map will be shared as a screen sharing stream. If you test locally and want to play both roles on the same machine, when you minimise the window that pertains to the screen-sharer, the map will disappear because you are sharing the entire screen.
+2. If subscriber.html page is open, both users should be able to communicate and the map will be shared as a screen sharing stream. If you test locally and want to play both roles on the same machine, when you minimise the window that pertains to the screen-sharer, the map will disappear because you are sharing the entire screen. So it is highly recommended to test this application on two different machines.
 
 Let's take the following image as an example. Let's suppose the application has some private content you don't want to share (we will presume this content is the green area in the image below), however the user would like to be able to share only a portion of the web application, such as the map on the right hand-side.
 
