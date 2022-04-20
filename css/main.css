@@ -19,11 +19,3 @@ div#status {
   height: 2em;
   margin: 1em 0 0 0;
 }
-
-video {
-  --width: 0px;
-  /* object-fit: contain; */
-
-  /* height: calc(var(--width) * 0.75); */
-  height: 0px;
-}

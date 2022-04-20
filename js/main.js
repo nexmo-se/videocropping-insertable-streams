@@ -87,7 +87,7 @@ startButton.addEventListener('click', async () => {
   // const stream = await navigator.mediaDevices.getUserMedia({video: {width: 1280, height: 720}});
   const stream = await navigator.mediaDevices.getDisplayMedia({
     video: true,
-    audio: false,
+    audio: null,
   });
   // localVideo.srcObject = stream;
 
@@ -119,13 +119,25 @@ startButton.addEventListener('click', async () => {
   session.publish(screenCroppedPublisher, handleError);
 
   function transform(frame, controller) {
+    const map = document.getElementById('map');
+    const { x, y, width, height, top, right, bottom, left } =
+      map.getBoundingClientRect();
     // Cropping from an existing video frame is supported by the API in Chrome 94+.
+
     const newFrame = new VideoFrame(frame, {
       visibleRect: {
-        x: 1084,
-        width: 250,
-        y: 116,
-        height: 630,
+        // x: 1084,
+        // x: x,
+        width: width,
+        // y: y,
+        height: height,
+        top: top + window.pageYOffset,
+        // right: box.right + window.pageXOffset,
+        // bottom: box.bottom + window.pageYOffset,
+        // left: box.left + window.pageXOffset,
+        right: right + window.pageXOffset,
+        bottom: bottom + window.pageYOffset,
+        left: left + window.pageXOffset,
       },
     });
     controller.enqueue(newFrame);
