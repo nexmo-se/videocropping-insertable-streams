@@ -12,7 +12,7 @@ var apiKey = '46264952';
 var sessionId =
   '1_MX40NjI2NDk1Mn5-MTY0OTQxNTg0Mjg4N351Rlg1QjFjNjNlZ1RCUDBCRk01NUJCV1d-fg';
 var token =
-  'T1==cGFydG5lcl9pZD00NjI2NDk1MiZzaWc9ZTU2NjU1NTU3ZDU4YzE0YmU0Y2RmMWEwNWUxYmFlOTVlYzgyMWNmZjpzZXNzaW9uX2lkPTFfTVg0ME5qSTJORGsxTW41LU1UWTBPVFF4TlRnME1qZzROMzUxUmxnMVFqRmpOak5sWjFSQ1VEQkNSazAxTlVKQ1YxZC1mZyZjcmVhdGVfdGltZT0xNjQ5NjY3OTcxJm5vbmNlPTAuODM3OTY1NDQ3MDg2MjA1OSZyb2xlPXB1Ymxpc2hlciZleHBpcmVfdGltZT0xNjUwMjcyNzcxJmluaXRpYWxfbGF5b3V0X2NsYXNzX2xpc3Q9';
+  'T1==cGFydG5lcl9pZD00NjI2NDk1MiZzaWc9YWRlOGQ1NDdkMDIzOWNlOWRiM2M1ZTI2NzcxMThkOTZhYWJlZjg4MjpzZXNzaW9uX2lkPTFfTVg0ME5qSTJORGsxTW41LU1UWTBPVFF4TlRnME1qZzROMzUxUmxnMVFqRmpOak5sWjFSQ1VEQkNSazAxTlVKQ1YxZC1mZyZjcmVhdGVfdGltZT0xNjUwNDQ3MzgyJm5vbmNlPTAuODkwMTE0NzMwNTMxMDQ2MiZyb2xlPXB1Ymxpc2hlciZleHBpcmVfdGltZT0xNjUzMDM5MzgyJmluaXRpYWxfbGF5b3V0X2NsYXNzX2xpc3Q9';
 
 if (!apiKey || !sessionId || !token) alert('fill out the config.js file');
 let session;
@@ -50,8 +50,8 @@ function initializeSession() {
     'publisher',
     {
       insertMode: 'append',
-      width: '100px',
-      height: '100px',
+      // width: '100px',
+      // height: '100px',
     },
     handleError
   );
@@ -82,37 +82,13 @@ function initializeSession() {
   });
 }
 
-const publish = (videoTracks) => {
-  console.log('publish function called');
-  if (
-    !screenCroppedPublisher
-    //&&
-    // videoTracks.length > 0 &&
-    // audioTracks.length > 0
-  ) {
-    console.log('trying to publish screen');
-    stream.removeEventListener('addtrack', publish);
-    const screenCroppedPublisher = OT.initPublisher(
-      'croppedVideo',
-      {
-        videoSource: videoTracks[0],
-        name: 'map',
-      },
-      handleError
-    );
-    // publisher.on('streamCreated', () => {
-    //   document.getElementById('publishstream').style.display = 'block';
-    // });
-    screenCroppedPublisher.on('destroyed', () => {
-      video.pause();
-    });
-  }
-};
-
-const worker = new Worker('./js/worker.js', { name: 'Crop worker' });
+// const worker = new Worker('./js/worker.js', { name: 'Crop worker' });
 startButton.addEventListener('click', async () => {
   // const stream = await navigator.mediaDevices.getUserMedia({video: {width: 1280, height: 720}});
-  const stream = await navigator.mediaDevices.getDisplayMedia({ video: true });
+  const stream = await navigator.mediaDevices.getDisplayMedia({
+    video: true,
+    audio: false,
+  });
   // localVideo.srcObject = stream;
 
   const [track] = stream.getTracks();
@@ -131,26 +107,30 @@ startButton.addEventListener('click', async () => {
     'croppedVideo',
     {
       videoSource: videoTracks[0],
+      width: '300px',
+      height: '600px',
+      // fitMode: 'cover',
+
       // videoSource: 'screen',
     },
     handleError
   );
 
-  // videoElement.addEventListener('addtrack', () => {
-  //   console.log('ahora si');
-  //   publish(videoTracks);
-  // });
-  // videoTracks.addEventListener('addtrack', () => {
-  //   console.log('ahora ssii');
-  // });
   session.publish(screenCroppedPublisher, handleError);
 
-  worker.postMessage(
-    {
-      operation: 'crop',
-      readable,
-      writable,
-    },
-    [readable, writable]
-  );
+  function transform(frame, controller) {
+    // Cropping from an existing video frame is supported by the API in Chrome 94+.
+    const newFrame = new VideoFrame(frame, {
+      visibleRect: {
+        x: 1084,
+        width: 250,
+        y: 116,
+        height: 630,
+      },
+    });
+    controller.enqueue(newFrame);
+    frame.close();
+  }
+
+  readable.pipeThrough(new TransformStream({ transform })).pipeTo(writable);
 });
