@@ -20,6 +20,6 @@ Let's take the following image as an example. Let's suppose the application has 
 
 ![Private screen](https://github.com/nexmo-se/videocropping-insertable-streams/blob/main/images/private_screen.png?raw=true)
 
-Once the user hits on share screen and selects entire screen, a new stream will be created including only a specific portion of the screen. As it is seen in the image below, the new stream published into the session only contains the map.
+Once the user hits on share screen and selects the specific window they want to share, a new stream will be created including only a specific portion of the screen. As it is seen in the image below, the new stream published into the session only contains the map.
 
 ![Stream shared](https://github.com/nexmo-se/videocropping-insertable-streams/blob/main/images/private_screen_sharing.png?raw=true)
