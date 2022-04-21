@@ -130,22 +130,23 @@ startButton.addEventListener('click', async () => {
       visibleRect: {
         // x: 1084,
         // x: x,
+        x: 10,
+        y: 80,
         width: width,
-        y: window.outerHeight - window.innerHeight - top - 1,
-        top: 100,
+        // y: window.outerHeight - window.innerHeight - top - 10,
+        // y: 103,
         height: height,
-        // top: top + (window.outerHeight - window.innerHeight),
-        // top: 146,
-        // right: box.right + window.pageXOffset,
-        // bottom: box.bottom + window.pageYOffset,
-        // left: box.left + window.pageXOffset,
-        right: right + window.pageXOffset,
-        bottom: bottom + window.pageYOffset,
-        left: left + window.pageXOffset,
+
+        // right: right + window.pageXOffset,
+        // bottom: bottom + window.pageYOffset,
+        // left: left + window.pageXOffset,
       },
     });
-    controller.enqueue(newFrame);
+
+    console.log(newFrame.codedWidth);
+
     frame.close();
+    controller.enqueue(newFrame);
   }
 
   readable.pipeThrough(new TransformStream({ transform })).pipeTo(writable);
