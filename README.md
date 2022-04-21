@@ -4,7 +4,7 @@ This sample shows how to perform cropping on a screen sharing stream using the e
 
 ## Use Case
 
-For some use-cases, it is important that you can select a portion of the screen to share, because you want to prevent some business logic content to be shared. Insertable Streams, which is a new browser API, allows that. This sample application has been adapted from the one found [here](https://webrtc.github.io/samples/). Bear in mind that at present, Insertable streams support only Chrome and Chromium based browsers (https://chromestatus.com/feature/5499415634640896)
+For some use-cases, it is important that you can specify a portion of the screen to share, because you want to prevent some business logic content to be shared. Insertable Streams, which is a new browser API, allows that. This sample application has been adapted from the one found [here](https://webrtc.github.io/samples/). Bear in mind that at present, Insertable streams support only Chrome and Chromium based browsers (https://chromestatus.com/feature/5499415634640896)
 
 ## How does it work?
 

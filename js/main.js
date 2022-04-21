@@ -117,6 +117,8 @@ startButton.addEventListener('click', async () => {
   );
 
   session.publish(screenCroppedPublisher, handleError);
+  console.log(document.getElementById('map').getBoundingClientRect());
+  console.log(window.outerHeight - window.innerHeight);
 
   function transform(frame, controller) {
     const map = document.getElementById('map');
@@ -129,7 +131,8 @@ startButton.addEventListener('click', async () => {
         // x: 1084,
         // x: x,
         width: width,
-        y: window.innerHeight - document.documentElement.clientHeight,
+        y: window.outerHeight - window.innerHeight - top - 1,
+        top: 100,
         height: height,
         // top: top + (window.outerHeight - window.innerHeight),
         // top: 146,
@@ -137,8 +140,7 @@ startButton.addEventListener('click', async () => {
         // bottom: box.bottom + window.pageYOffset,
         // left: box.left + window.pageXOffset,
         right: right + window.pageXOffset,
-        bottom:
-          bottom + window.pageYOffset > 674 ? 674 : bottom + window.pageYOffset,
+        bottom: bottom + window.pageYOffset,
         left: left + window.pageXOffset,
       },
     });
