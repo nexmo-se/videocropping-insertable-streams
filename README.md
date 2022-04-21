@@ -8,7 +8,7 @@ For some use-cases, it is important that you can specify a portion of the screen
 
 ## How does it work?
 
-Once the screen publisher selects entire screen, the getDisplayMedia() API will be called. At that point, we will create a [VideoFrame ](https://developer.mozilla.org/en-US/docs/Web/API/VideoFrame) which is a rectangle by leveraging the [mediacapture-transform API](https://github.com/w3c/mediacapture-transform). This sample application has the dimensions of the rectangle hardcoded, but you can dynamically let the user compose a rectangle and then calculate the coordinates of the rectangle and pass it to the transform function to only share a portion of the user's screen.
+Once the screen publisher selects entire screen, the getDisplayMedia() API will be called. At that point, we will create a [VideoFrame ](https://developer.mozilla.org/en-US/docs/Web/API/VideoFrame) which is a rectangle by leveraging the [mediacapture-transform API](https://github.com/w3c/mediacapture-transform). This sample application has the dimensions of the rectangle coming from the position of the map.
 
 ## How to use this application
 
