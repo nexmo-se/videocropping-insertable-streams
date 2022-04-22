@@ -39,7 +39,10 @@
       <!-- <video id="localVideo" playsinline autoplay muted></video> -->
       <!-- <div style="position: absolute; bottom: 50px" id="subscriber"></div> -->
       <div id="publisher"></div>
-      <div style="display: flex" id="subscriber"></div>
+      <div
+        style="display: flex; position: absolute; bottom: 0px; right: 10px"
+        id="subscriber"
+      ></div>
     </div>
   </body>
   <script>
@@ -72,12 +75,15 @@
           height: event.stream.videoType === 'custom' ? '600px' : '300px',
         };
         // }
-        session.subscribe(
+        const subscriber = session.subscribe(
           event.stream,
           'subscriber',
           subscriberOptions,
           handleError
         );
+        if (event.stream.videoType === 'custom') {
+          document.getElementById(subscriber.id).classList.add('center');
+        }
       });
 
       // initialize the publisher

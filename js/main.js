@@ -129,11 +129,11 @@ startButton.addEventListener('click', async () => {
     const newFrame = new VideoFrame(frame, {
       visibleRect: {
         // x: 1084,
-        // x: x,
-        x: 10,
+        x: x,
+        // x: 10,
         y: 80,
         width: width,
-        // y: window.outerHeight - window.innerHeight - top - 10,
+        // y: window.outerHeight - window.innerHeight - 32,
         // y: 103,
         height: height,
 
